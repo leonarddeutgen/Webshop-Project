@@ -1,0 +1,44 @@
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-justify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-justify-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+@mixin heroImg {
+    width: 50%;
+      height: 100%;
+      background-size: cover;
+      cursor: pointer;
+}
+
+@mixin hoverHero {
+    color: white;
+    padding: 1rem;
+}
+
+@mixin productsContainer {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    margin: 0 1rem;
+}
+
+@mixin productImg {
+    height: 100%;
+    width: 100%;
+    object-fit: scale-down;
+}
+

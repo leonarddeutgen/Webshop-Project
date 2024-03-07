@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell it or buy it?</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header--nav">
+        <a href="shoppingCart.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+          </svg>
+          <p class="goBackToCart">&nbsp;&nbsp;Go back to shopping bag</p>
+        </a>
+      </nav>
+    </header>
+    <main class="checkOut">
+        <article class="checkOut--container">
+            <!--Section för leverans samt betalning-->
+            <section class="shippingInformation">
+                <!--Input namn samt email-->
+                <div class="accountInformation">
+                    <input class="accountInformation--input" placeholder="Name" type="text">
+                    <input class="accountInformation--input" placeholder="name@gmail.com" type="text">
+                </div>
+
+                <!--Val av transportör-->
+                <div class="shippingInformation--supplier">
+                    <div>
+                        <input id="postnord" type="radio" name="shippingOption">
+                        <label for="postnord">Postnord</label>
+                    </div>
+                    <div>
+                        <input id="instabox" type="radio" name="shippingOption">
+                        <label for="instabox">Instabox</label>
+                    </div>
+                    <div>
+                        <input id="DHL" type="radio" name="shippingOption">
+                        <label for="DHL">DHL</label>
+                    </div>
+                </div>
+
+                <!--Val av betalning-->
+                <section class="payMethod">
+                    <div class="payMethod--box">
+                        <label for="card" name="payMethod">Card</label>
+                        <input type="radio" id="card" name="payMethod">
+                    </div>
+                    <div class="payMethod--box">
+                        <label for="swish" name="payMethod">Swish</label>
+                        <input type="radio" id="swish" name="payMethod">
+                    </div>
+                </section>
+
+                <!--Fylls i med javaScript-->
+                <div id="paymentChoice">
+                    <div class="cardNumberDiv"></div>
+                </div>
+            </section>
+
+            <!--Section summering av varukorg-->
+            <section class="orderSummary">
+                <h2>Checkout</h2>
+                <div id="orderSummaryContainer"></div>
+                <div id="orderSummaryContainer--footer">
+                    <p id="summaryOfValue"></p>
+                </div>
+                <button class ="purchaseBtn">Purchase</button>
+            </section>
+        </article>
+    </main>
+
+    <script type="module" src="src/ts/main.ts"></script>
+  </body>
+</html>

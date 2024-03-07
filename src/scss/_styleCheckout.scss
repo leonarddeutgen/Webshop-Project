@@ -1,0 +1,244 @@
+/* start styling för kassa sida */
+/* mobil */
+@use "variables" as v;
+@use "mixins";
+
+@media (max-width: 884px){
+
+    .checkOut{
+      height: 90vh;
+      @include mixins.flex-justify;
+    
+      &--container {
+        @include mixins.flex-justify;
+        width: 80%;
+        height: 30rem;
+        border: 1px solid v.$primary-color;
+      }
+    }      
+      .orderSummary{
+        display: none;
+      }
+    
+    
+        .shippingInformation{
+          @include mixins.flex;
+          flex-direction: column;
+          height: 100%;
+
+          //style för radio buttons
+          &--supplier{
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            margin: 1rem;
+            padding: 1rem;
+            border: 1px solid v.$primary-color;
+            border-radius: 20px;
+          }
+        }    
+          
+          .accountInformation {
+            @include mixins.flex-justify-column;
+            margin: 1rem;
+            padding: 1rem;
+            border: 1px solid v.$primary-color;
+            border-radius: 20px;
+    
+            &--inputAcount{
+              width: 10rem;
+              border: 1px solid v.$primary-color;
+              margin: 0.5rem;
+            }
+          }
+        
+          
+            .payMethod{
+              display: flex;
+    
+              &--box{
+                width: 50%;
+                height: 100%;
+                @include mixins.flex-justify;
+                flex-direction: column;
+                padding: 1rem;
+                margin: 1rem;
+              }
+            }
+    
+            #paymentChoice{
+              @include mixins.flex-justify-column;
+              border: 1px solid v.$primary-color;
+              border-radius: 20px;
+            }  
+    
+              .cardNumber{
+                width: 8rem;
+                margin: 0.5rem;
+              }
+    
+              .monthCvcDiv{
+                @include mixins.flex-justify;
+              }
+              .monthCvc{
+                width: 3rem;
+                margin: 1rem;
+              }
+              
+}
+    
+/* style för desktop */
+
+  .goBackToCart {
+    display: inline;
+  }
+  .checkOut{
+      height: 100vh;
+      @include mixins.flex-justify;
+      
+        &--container{
+          height: 30rem;
+          width: 40rem;
+          display: flex;
+          border: 1px solid v.$primary-color;
+        }
+  }
+  .shippingInformation{
+            height: 100%;
+            width: 50%;
+            border-right: 1px solid v.$primary-color;
+    
+            @include mixins.flex;
+            flex-direction: column;
+
+        &--supplier{
+              display: flex;
+              align-items: flex-start;
+              flex-direction: column;
+              margin: 1rem;
+              padding: 1rem;
+              border: 1px solid v.$primary-color;
+              border-radius: 20px;
+      
+              button{
+                width: 1rem;
+                height: 1rem;
+              }
+        }
+    }
+
+.accountInformation{
+  @include mixins.flex-justify-column;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid v.$primary-color;
+  border-radius: 20px;
+  &--inputAcount{
+    width: 10rem;
+    border: 1px solid v.$primary-color;
+    margin: 0.5rem;
+  }
+}
+.payMethod{
+  display: flex;
+  &--box{
+    width: 50%;
+    height: 100%;
+    @include mixins.flex-justify-column;
+    padding: 1rem;
+  }
+}
+#paymentChoice{
+  @include mixins.flex-justify-column;
+  border: 1px solid v.$primary-color;
+  border-radius: 20px;
+} 
+.cardNumber{
+  width: 8rem;
+  margin: 0.5rem;
+}
+.monthCvcDiv{
+  @include mixins.flex-justify;
+}
+.monthCvc{
+  width: 3rem;
+  margin: 1rem;
+}
+.orderSummary{
+  width: 50%;
+  height: 100%;
+  background-color: v.$secondary-color;
+  @include mixins.flex-justify-column;
+}
+#orderSummaryContainer{
+  height: 20rem;
+  overflow: auto;
+  margin-top: 10px;
+  &--footer{
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid v.$primary-color;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    flex-direction: column;
+  }
+}  
+.checkOut--imgContainer {
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid v.$border-colour;
+  padding: 10px;
+  .checkOut--img {
+    height: 100%;
+    width: 100%;
+    object-fit: scale-down;
+  }
+}
+.checkOut--productBox{
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  .checkOut--title {
+    padding: 10px;
+    font-size: v.$small-text;
+  }
+  .checkOut--price {
+    font-size: v.$small-text;
+    margin: 10px 0;
+  }
+}
+
+
+.purchaseBtn {
+  cursor: pointer;
+  background-color: v.$border-colour;
+  color: v.$secondary-color;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+  .header--nav {
+    cursor: v.$click;
+  }
+
+  .checkOut--qty{
+    display: flex;
+    gap: 0.5rem;
+
+    .checkOut--plusBtn{
+     color: v.$secondary-color;
+     background-color: v.$primary-color;
+      
+    }
+    .checkOut--minusBtn {
+      color: v.$secondary-color;
+      background-color: v.$primary-color;
+
+    }
+
+    .checkOut--removeBtn {
+      cursor: v.$click;
+      font-size: large;
+    }
+  }

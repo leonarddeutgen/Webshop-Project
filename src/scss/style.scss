@@ -1,0 +1,302 @@
+@use "reset";
+@use "mixins";
+@use "variables" as v;
+@use "styleCheckout";
+
+/* Header */
+.header{
+  height: 10vh;
+  display: flex;
+
+  &--nav {
+    @include mixins.flex;
+    width: 90%;
+    margin-left: 1rem;
+   
+    ul{
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        
+        a{
+          cursor: v.$click;
+
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+  }
+  
+  &--cartIcon {
+    width: 10%;
+    @include mixins.flex-justify;
+  }
+
+  &--searchIcon {
+    @include mixins.flex;
+    margin-top:8px;
+
+    svg {
+      width: 30px;
+      cursor: v.$click;
+      margin-bottom: 10px;
+    }
+  }
+
+  &--searchInput {
+    border: none;
+    border-bottom: 2px solid v.$border-colour;
+    padding: 5px;
+    margin-bottom: 15px; 
+    font-size: v.$small-text; 
+    outline: none;
+  }
+}
+
+
+/* Main */
+.main {
+    height: 90vh;
+    @include mixins.flex-justify;
+  
+
+    &--text{
+        color: v.$secondary-color;
+        font-size: 120px;
+        position: absolute;
+    }
+
+    &--pW, &--pM {
+      transition: v.$transition-duration;
+    }
+
+    &--imgContainerW {
+      @include mixins.heroImg;
+      background-image: url("./src/img/woman-runway.png");
+      
+      &:hover{
+        .main--pW{
+          @include mixins.hoverHero;
+        }
+      }
+    }
+  
+    &--imgContainerM {
+        @include mixins.heroImg;
+        background-image: url("./src/img/man-runway.png");
+      
+        &:hover{
+          .main--pM{
+            @include mixins.hoverHero;
+          }
+      }  
+ }
+}
+
+/* Styling för produktsidorna */
+#productsWContainer, #productsMContainer  {
+  @include mixins.productsContainer;
+}
+
+.productBox {
+  @include mixins.flex-justify-column;
+  margin-bottom: 20px;
+  width: 100%;
+  overflow: hidden;
+  
+  &:hover{
+    opacity: 50%;
+    .productBox--btn{
+      display: block;
+      opacity: 100%;
+    }
+  }
+  
+  &--title{
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 1rem;
+    font-size: v.$small-text;
+  }
+  
+  &--price{
+    align-self: flex-start;
+    margin-top: 10px;
+    font-size: 18px;
+    
+  }
+  
+  &--btn{
+    position: absolute;
+    display: none;
+    cursor: v.$click;
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: 1px solid v.$border-colour;
+    
+    &:hover{
+      background-color: v.$border-colour;
+      color: white;
+    }
+  }
+  
+}
+
+ .imgContainer {
+  height: 20rem;
+  width: 100%;
+  border: 1px solid v.$border-colour;
+  
+    &--img{
+      @include mixins.productImg;
+      padding: 1.5rem;
+    }
+  }
+
+//Styling för titlen på produktsidorna
+.pageTitle {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-left: 1rem;
+
+  &--h1 {
+    font-size: v.$large-text;
+  }
+
+  &--p {
+    font-size: v.$small-text;
+    padding-right: 15rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Styling för varukorgen */
+#shoppingCartContainer {
+  @include mixins.flex-justify-column;
+
+  &--title {
+    display: flex;
+    margin: 2rem;
+    font-size: v.$large-text;
+  }
+
+  &--removeBtn {
+  background-color: v.$primary-color;
+  }
+}
+
+.shoppingCartTitleContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.shoppingCartBox {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+
+  &--title {
+    padding: 1rem;
+  }
+
+  &--price {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+}
+
+.imgContainerSC {
+  height: 8rem;
+  width: 8rem;
+  border: 1px solid v.$border-colour;
+  padding: 10px;
+
+  &--img {
+      height: 100%;
+      width: 100%;
+      object-fit: scale-down;
+  }
+}
+
+.qtyContainer{
+  display: flex;
+  gap: 0.5rem;
+
+  &--changeQtyBtn{
+    padding: 0.2rem;
+    color: white;
+    background-color: v.$primary-color;
+  }
+}
+
+/* Styling för aside i varukorgen */
+.sumAside {
+  position: fixed;
+  top: 60%; 
+  right: 5%;
+  background-color: v.$secondary-color;  
+  box-sizing: border-box;
+  margin: 30px;
+
+  &__empty {
+    display: none;
+  }
+
+  &--Btn {
+    display: flex;
+    background-color: v.$primary-color;
+    color: v.$secondary-color;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 50px;
+    padding: v.$padding;
+  }
+}
+
+// Styling för när varukorgen är tom
+.emptyTitle {
+  font-size: 30px;
+  margin-top: 5rem;
+}
+
+.continueShoppingBtn {
+  border: 1px solid v.$border-colour;
+  padding: v.$padding;
+  margin-top: 1.5rem;
+
+   &:hover {
+     cursor: v.$click;
+     background-color: v.$secondary-color; 
+   }
+}
+
+//Ditt köp har genomförts-styleing
+#purchaseDiv {
+  @include mixins.flex-justify;
+  flex-direction: column;
+  height: 100vh; 
+  margin: 0; 
+
+  h1 {
+    font-size: 50px;
+  }
+  p {
+    margin-top: 30px;
+  }
+}
+
+#continueShopBtn {
+  margin-top: 300px; 
+  background-color: v.$border-colour;
+    color: v.$secondary-color;
+    border-radius: 10px;
+    padding: v.$padding;
+    cursor: v.$click;
+
+  }
+
+ 
